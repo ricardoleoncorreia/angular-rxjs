@@ -2,7 +2,11 @@ import { Observable } from "rxjs";
 
 export function createHttpObservable(url: string) {
   return Observable.create(observer => {
-    fetch(url)
+
+    const controller = new AbortController();
+    const signal = controller.signal;
+
+    fetch(url, {signal})
       .then(response => {
         return response.json();
       }).then(body => {
@@ -11,6 +15,9 @@ export function createHttpObservable(url: string) {
       }).catch(err => {
         observer.error(err);
       });
+
+    // This is the cancellation function, it executes when unsubscribe
+    return () => controller.abort();
   });
 }
 
