@@ -43,6 +43,14 @@ export class CourseComponent implements OnInit, AfterViewInit {
 
         this.course$ = this.store.selectCourseById(this.courseId);
 
+        this.loadLessons()
+            .pipe(
+                withLatestFrom(this.course$)
+            )
+            .subscribe(([lessons, course]) => {
+                console.log('lessons', lessons);
+                console.log('course', course);
+            });
         /*
             To force a long observable to complete, you can use the
             operators 'first' and 'take'.
