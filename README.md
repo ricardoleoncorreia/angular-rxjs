@@ -5,9 +5,6 @@ This repository contains the code of the [RxJs In Practice Course](https://angul
 
 This course repository is updated to Angular v7, and there is a  package-lock.json file available, for avoiding semantic versioning installation issues.
 
-![RxJs In Practice Course](https://s3-us-west-1.amazonaws.com/angular-university/course-images/rxjs-in-practice-course.png)
-
-
 # Installation pre-requisites
 
 IMPORTANT: Please use the latest Node and especially NPM, to make sure the package-lock.json is used.
@@ -20,132 +17,49 @@ For running this project we need and npm installed on our machine. These are som
 - [Install Node and NPM on Linux](https://www.youtube.com/watch?v=yUdHk-Dk_BY)
 - [Install Node and NPM on Mac](https://www.youtube.com/watch?v=Imj8PgG3bZU)
 
-
-# Installing the Angular CLI
-
-With the following command the angular-cli will be installed globally in your machine:
-
-    npm install -g @angular/cli 
-
-
-# How To install this repository
-
-We can install the master branch using the following commands:
-
-    git clone https://github.com/angular-university/rxjs-course.git
-    
-This repository is made of several separate npm modules, that are installable separately. For example, to run the au-input module, we can do the following:
-    
-    cd rxjs-course
-    npm install
-
-Its also possible to install the modules as usual using npm:
-
-    npm install 
-
-NPM 5 or above has the big advantage that if you use it you will be installing the exact same dependencies than I installed in my machine, so you wont run into issues caused by semantic versioning updates.
-
-This should take a couple of minutes. If there are issues, please post the complete error message in the Questions section of the course.
-
-# To Run the Development Backend Server
-
-In order to be able to provide realistic examples, we will need in our playground a small REST API backend server. We can start the sample application backend with the following command:
-
-    npm run server
-
-This is a small Node REST API server.
-
-# To run the Development UI Server
-
-To run the frontend part of our code, we will use the Angular CLI:
-
-    npm start 
-
-The application is visible at port 4200: [http://localhost:4200](http://localhost:4200)
-
-
-
-# Important 
-
-This repository has multiple branches, have a look at the beginning of each section to see the name of the branch.
-
-At certain points along the course, you will be asked to checkout other remote branches other than master. You can view all branches that you have available remotely using the following command:
-
-    git branch -a
-
-  The remote branches have their starting in origin, such as for example 1-navigation-and-containers.
-
-We can checkout the remote branch and start tracking it with a local branch that has the same name, by using the following command:
-
-      git checkout -b section-1 origin/1-navigation-and-containers
-
-It's also possible to download a ZIP file for a given branch,  using the branch dropdown on this page on the top left, and then selecting the Clone or Download / Download as ZIP button.
-
-# Other Courses
-
-# Angular PWA Course
-
-If you are looking for the [Angular PWA Course](https://angular-university.io/course/angular-pwa-course), the repo with the full code can be found here:
-
-![Angular PWA Course - Build the future of the Web Today](https://s3-us-west-1.amazonaws.com/angular-university/course-images/angular-pwa-course.png)
-
-# Angular Security Masterclass
-
-If you are looking for the [Angular Security Masterclass](https://angular-university.io/course/angular-security-course), the repo with the full code can be found here:
-
-[Angular Security Masterclass](https://github.com/angular-university/angular-security-course).
-
-![Angular Security Masterclass](https://s3-us-west-1.amazonaws.com/angular-university/course-images/security-cover-small-v2.png)
-
-# Angular Advanced Library Laboratory Course
-
-If you are looking for the Angular Advanced Course, the repo with the full code can be found here:
-
-[Angular Advanced Library Laboratory Course: Build Your Own Library](https://angular-university.io/course/angular-advanced-course).
-
-![Angular Advanced Library Laboratory Course: Build Your Own Library](https://angular-academy.s3.amazonaws.com/thumbnails/advanced_angular-small-v3.png)
-
-
-## RxJs and Reactive Patterns Angular Architecture Course
-
-If you are looking for the RxJs and Reactive Patterns Angular Architecture Course code, the repo with the full code can be found here:
-
-[RxJs and Reactive Patterns Angular Architecture Course](https://angular-university.io/course/reactive-angular-architecture-course)
-
-![RxJs and Reactive Patterns Angular Architecture Course](https://s3-us-west-1.amazonaws.com/angular-academy/blog/images/rxjs-reactive-patterns-small.png)
-
-
-
-## Angular Ngrx Reactive Extensions Architecture Course
-
-If you are looking for the Angular Ngrx Reactive Extensions Architecture Course code, the repo with the full code can be found here:
-
-[Angular Ngrx Reactive Extensions Architecture Course](https://angular-university.io/course/angular2-ngrx)
-
-[Github repo for this course](https://github.com/angular-university/ngrx-course)
-
-![Angular Ngrx Course](https://angular-academy.s3.amazonaws.com/thumbnails/ngrx-angular.png)
-
-
-
-## Angular 2 and Firebase - Build a Web Application Course
-
-If you are looking for the Angular 2 and Firebase - Build a Web Application Course code, the repo with the full code can be found here:
-
-[Angular 2 and Firebase - Build a Web Application](https://angular-university.io/course/build-an-application-with-angular2)
-
-[Github repo for this course](https://github.com/angular-university/angular-firebase-app)
-
-![Angular firebase course](https://angular-academy.s3.amazonaws.com/thumbnails/angular_app-firebase-small.jpg)
-
-
-## Complete Typescript 2 Course - Build A REST API
-
-If you are looking for the Complete Typescript 2 Course - Build a REST API, the repo with the full code can be found here:
-
-[https://angular-university.io/course/typescript-2-tutorial](https://github.com/angular-university/complete-typescript-course)
-
-[Github repo for this course](https://github.com/angular-university/complete-typescript-course)
-
-![Complete Typescript Course](https://angular-academy.s3.amazonaws.com/thumbnails/typescript-2-small.png)
-
+# Worked braches
+
+- Observables: 1-operators
+- Subjects: 2-store
+
+# Implemented observable operators
+
+- AbortController: Create a way to cancel an observable (follow the switchMap definition)
+- concat: Concatenate two or more observables
+- concatMap: Executes the second stream after the first one completes
+- catchError: Handle errors, it completes the one that errored out and creates a new one. The value emitted is executed as a success
+- debounceTime: waits the value to be stable to execute the last value emitted
+- distinctUntilChanged: continues the stream if the new value is different than the previous one
+- delayWhen: delay the values, used regulary with retryWhen and timer (as a observable returned)
+- exhaustMap: No later streams are executed until the first one is completed
+- filter: stream is excluded if a specified condition is not fulfilled
+- finalize: it is the same as "finally" in a "try/catch block" for catchError
+- first: observable is completed after the first value gets emitted
+- forkJoin: waits for combined streams to be completed to emit only one value with all stream values and then completes
+- fromPromise: converts a promise into an observable
+- fromEvent: converts an event (eg: click) into an observable
+- Interval: Creates an Observable that emits sequential numbers every specified interval of time
+- map: helps you to convert observable content
+- merge: Merge two or more observables
+- mergeMap: Executes all followed streams in parallel
+- noop: No operator ( () => {} )
+- Observable.create: creates an observer from scratch
+- of: emits a value an completes
+- retryWhen: each time the stream errors out, it creates a new stream with some conditions
+- shareReplay: share observable content for many different child observables (eg: filter courses by category)
+- startWith: initialize the stream with a default value
+- switchMap: When a new stream appears, the previous one is cancelled
+- take: after n values emitted, the observable completes
+- tap: use observable content without saving results
+- throttle: limit number of values being emitted in a period of time, used with interval
+- throttleTime: it is like throttle but it only requires the time as a argument
+- throwError: Returns an observable that errors out
+- Timer: Creates an Observable that starts emitting after an dueTime and emits ever increasing numbers after each period of time thereafter
+- withLatestFrom: emits the value with the last one emitted from a second one
+
+# Subjects
+
+- AsyncSubject: Used for long running calculations. When it completes, it emits the last value of the stream before the completion
+- BehaviorSubject: A subject with an initial value
+- ReplaySubject: Is like AsyncSubject but it emits all intermidiate values
+- Subject: it is an observable and an observer at the same time
